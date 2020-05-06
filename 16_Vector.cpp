@@ -1,6 +1,6 @@
 #include <cstring>
 
-template <class T> // allocator ommitted
+template <class T> // allocator omitted
 class vector {
   public:
     typedef T value_type;
