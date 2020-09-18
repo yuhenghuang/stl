@@ -29,9 +29,10 @@ void _display_category(input_iterator_tag) {
 
 template <typename I>
 void display_category(I iter) {
-  //typedef typename iterator_traits<I>::iterator_category cate; cate();
-  typename iterator_traits<I>::iterator_category cate;
-  _dispaly_category(cate);
+  typedef typename iterator_traits<I>::iterator_category cate;
+  _dispaly_category(cate());
+  // typename iterator_traits<I>::iterator_category cate;
+  // _dispaly_category(cate);
 
   cout <<"typeid(iter).name()= "<< typeid(iter).name() << endl;
 }

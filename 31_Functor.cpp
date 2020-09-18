@@ -16,7 +16,7 @@ struct add: public binary_function<T, T, T> {
 
 template <class T>
 struct subtract: public binary_function<T, T, T> {
-  T operator() (const T& x, const &T y) const { return x-y; }
+  T operator() (const T& x, const T& y) const { return x-y; }
 };
 
 // logical
@@ -28,12 +28,12 @@ struct logical_and: public binary_function<T, T, bool> {
 // relational
 template <class T>
 struct equal_to: public binary_function<T, T, bool> {
-  bool operator() (const T& x, const &T y) { return x==y; }
+  bool operator() (const T& x, const T& y) { return x==y; }
 };
 
 template <class T>
 struct less: public binary_function<T, T, bool> {
-  bool operator() (const T& x, const &T y) { return x<y; }
+  bool operator() (const T& x, const T& y) { return x<y; }
 };
 
 template <class T>
@@ -55,7 +55,7 @@ struct pair {
 
   T1 first;
   T2 second;
-  pair(): first(T1(), T2());
+  pair(): first(T1()), second(T2()) {};
   pair(const T1& a, const T2& b): first(a), second(b) { }
 };
 
@@ -72,7 +72,7 @@ struct select1st: public unary_function<Pair, typename Pair::first_type> {
 };
 
 template <class Pair>
-struct select1st: public unary_function<Pair, typename Pair::second_type> {
+struct select2nd: public unary_function<Pair, typename Pair::second_type> {
   const typename Pair::second_type& operator() (const Pair& x) const {
     return x.second;
   }

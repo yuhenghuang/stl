@@ -5,7 +5,7 @@ ForwardIterator lower_bound(ForwardIterator first,
                             ForwardIterator last,
                             const T& val) {
   ForwardIterator it;
-  std::iterator_traits<ForwardIterator>::difference_type count;
+  typename std::iterator_traits<ForwardIterator>::difference_type count, step;
   count = distance(first, last); // general function for all iterators
   while (count>0) {
     it = first; step=count/2; advance(it, step); // general function for all iterators

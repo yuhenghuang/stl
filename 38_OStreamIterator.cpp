@@ -11,7 +11,7 @@ class ostream_iterator: public std::iterator<std::output_iterator_tag, void, voi
     ostream_iterator(ostream_type& s): out_stream(&s), delim(0) {}
     ostream_iterator(ostream_type& s, const charT* delimiter)
     : out_stream(&s), delim(delimiter) {}
-    ostream_iterator(const ostream_iterator<T, charT, traits>& x)
+    ostream_iterator(const ostream_iterator<T, charT, traits>& x) // copy constructor
     : out_stream(x.out_stream), delim(x.delim) { } // no need to reference because they are all pointers
     ~ostream_iterator() {}
     ostream_iterator<T, charT, traits>& 
